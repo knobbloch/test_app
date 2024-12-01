@@ -8,6 +8,7 @@
    - `docker exec -it test-app bash`
    - `php artisan migrate`
    - `php artisan db:seed --class=AdminSeeder`
+
 Перейдите по пути /api/form_guestbook - добавление записи
     примечание: капча отображается, но не работает
 Перейдите по пути /admin/login - вход в админскую панель
