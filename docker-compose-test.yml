@@ -1,0 +1,31 @@
+services:
+  test-app:
+    build:
+      dockerfile: Dockerfile-test
+    container_name: test-app
+    environment:
+      - LOG_CHANNEL=stack
+      - TZ=Asia/Yekaterinburg
+      - DATABASE_URL=mysql://root:root@my-sql:3306/test
+    volumes:
+      - ./app:/app/app
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+    
+  database:
+    image: mysql:latest
+    container_name: my-sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+    volumes:
+      - my-sql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  my-sql:
