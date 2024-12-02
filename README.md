@@ -5,6 +5,7 @@
 1. Скачайте все файлы.
 2. В этой же директории выполните:
    - `docker compose --file .\docker-compose-test.yml up --build --watch`
+     Откройте еще одну консоль и подключитесь к созданному контейнеру
    - `docker exec -it test-app bash`
    - `php artisan migrate`
    - `php artisan db:seed --class=AdminSeeder`
